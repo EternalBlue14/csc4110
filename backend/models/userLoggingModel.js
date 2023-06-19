@@ -44,6 +44,29 @@ userLoggingSchema.statics.signup = async function(userName, password) {
 
 }
 
+// static method for login logic
+userLoggingSchema.statics.login = async function(userName, password) {
+    if (!userName || !password) {
+        throw Error('All fields must be completed.')
+    }
+
+    const user = await this.findOne({ userName })
+
+    if (!user) {
+        throw Error('incorrect email')
+    }
+
+    // compare password to one in db
+    const match = await bcrypt.compare(password, user.password)
+
+    if (!match) {
+        throw Error('Incorrect password')
+    }
+
+    return user
+
+}
+
 
 // make a model to apply the schema
 // this builds a collection
