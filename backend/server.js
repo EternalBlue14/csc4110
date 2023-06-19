@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 // tell express app to use routes from /routes/users.js
 app.use('/api/users', userRoutes)  // /api/users defines request root
-app.user('/api/userLogging', userLoggingRoutes)
+app.use('/api/userLogging', userLoggingRoutes)
 
 mongoose.connect(process.env.MONG_URI)
     .then(() => {

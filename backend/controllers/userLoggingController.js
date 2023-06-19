@@ -7,18 +7,16 @@ const loginUser = async (req, res) => {
 
 // signup user
 const signupUser = async (req, res) => {
-    const {email, password} = req.body
+    const {userName, password} = req.body
 
     try {
         // using static function from model for hashing
-        const user = await UserLogging.signup(email, password)
+        const user = await UserLogging.signup(userName, password)
 
-        res.status(200).json({email, user})
+        res.status(200).json({userName, user})
     } catch (error) {
-        res.status(400).json({error: error.mssg})
+        res.status(400).json({error: error.message})
     }
-
-    res.json({mssg: 'signup user'})
 }
 
 module.exports = { signupUser, loginUser }

@@ -20,7 +20,7 @@ const userLoggingSchema = new Schema({
 userLoggingSchema.statics.signup = async function(userName, password) {
 
     // validation
-    if (!email || !password) {
+    if (!userName || !password) {
         throw Error('All fields must be completed.')
     }
     // password validation using validator package
@@ -28,7 +28,7 @@ userLoggingSchema.statics.signup = async function(userName, password) {
         throw Error("Password not strong enough")
     }
 
-    const exists = await this.findOne({ email })
+    const exists = await this.findOne({ userName })
 
     if (exists) {
         throw Error('username in use')
@@ -38,7 +38,7 @@ userLoggingSchema.statics.signup = async function(userName, password) {
     const salt = await bcrypt.genSalt(8)
     const hash = await bcrypt.hash(password, salt)
 
-    const user = await this.create({ email, password: hash })
+    const user = await this.create({ userName, password: hash })
 
     return user
 
