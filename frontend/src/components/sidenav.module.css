@@ -1,0 +1,55 @@
+.sidenav {
+    width: 250px;
+    transition: width 0.3s ease-in-out;
+    height: 100vh;
+    /*background-color: rgb(10,25,41);*/
+    background-color: #FDB811;
+    padding-top: 28px;
+    margin-left: 0;
+    margin-top: 0;
+}
+ 
+.sidenavClosed {
+    composes: sidenav;
+    transition: width 0.3s ease-in-out;
+    width: 60px
+}
+ 
+.sideitem {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    /*color: #B2BAC2;*/
+    color: #5A8EF4;
+    
+
+    text-decoration: none;
+}
+ 
+.linkText {
+    padding-left: 16px;
+}
+ 
+.linkTextClosed {
+    composes: linkText;
+    visibility: hidden;
+}
+ 
+.sideitem:hover {
+    background-color: #244f7d1c;
+
+
+}
+ 
+.menuBtn {
+    align-self: center;
+    align-self: flex-start; 
+    justify-self: flex-end;
+    /*color: #B2BAC2;*/
+    color: #5A8EF4;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-left: 20px;
+}
