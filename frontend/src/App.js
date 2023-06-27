@@ -13,6 +13,7 @@ import Sidenav from './components/Sidenav';
 import Topic1 from "./pages/Topic1";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
+import Login from "./pages/login.jsx";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Dashboard />}/>
           <Route path="/Topic1" element={<Topic1 />} />
           <Route path="/About" element={<About />}/>
+          <Route path="/Login" element={<Login />}/>
         </Routes>
       </main>
     </div>

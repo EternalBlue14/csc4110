@@ -1,0 +1,98 @@
+body {
+  background-color: #ffffff;
+}
+
+.study-buddy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sections-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.take-time-section {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #ffd9d9; /*Red*/
+}
+
+.achieve-goals-section {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #ffedcc; /*Yellow*/
+}
+
+.plenty-of-material-section {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #c6e6c3; /*Green*/
+}
+
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sections-container img {
+  max-width: 60px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.username-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.username-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.username-container input {
+  width: 100%;
+}
+
+.password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.password-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.password-container input {
+  width: 100%;
+}
+
+.submit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}

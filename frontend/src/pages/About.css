@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.motivation-box {
+  background-color: tan;
+  border: 2px solid black;
+  padding: 10px 40px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.motivation-box h3 {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.motivation-box a {
+  color: black;
+  text-decoration: none;
+}
+
+.motivation-box a:hover {
+  color: white;
+}
+
+/* Updated box styles */
+.green-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.assist-box {
+  flex: 1;
+  background-color: #f9f9b8;
+  border: 2px solid black;
+  padding: 10px;
+  max-width: 400px;
+  margin-right: 10px;
+}
+
+.research-box {
+  flex: 1;
+  background-color: #f9f9b8;
+  border: 2px solid black;
+  padding: 10px;
+  max-width: 400px;
+  margin-right: 10px;
+}
+
+.quality-box {
+  flex: 1;
+  background-color: #f9f9b8;
+  border: 2px solid black;
+  padding: 10px;
+  max-width: 400px;
+}
+
+.members-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.tan-box {
+  background-color: tan;
+  border: 2px solid black;
+  padding: 10px 40px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.tan-box h3 {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.tan-box a {
+  color: black;
+  text-decoration: none;
+}
+
+.tan-box a:hover {
+  color: white;
+}
+
+/* New box styles */
+.discord-box {
+  background-color: #d7f9d7;
+  border: 2px solid black;
+  padding: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.discord-box h3 {
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.discord-box p {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.discord-box img {
+  max-width: 200px;
+  max-height: 130px;
+  margin: 0 auto;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .green-container {
+    flex-direction: column;
+  }
+  .assist-box,
+  .research-box,
+  .quality-box {
+    margin-bottom: 10px;
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
