@@ -1,0 +1,10 @@
+.progress-container {
+    position: absolute;
+    top: 200px;
+    right: 500px;
+    width: 360px;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+    background-color: #b1acdf;
+}
