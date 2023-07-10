@@ -2,6 +2,16 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+const quizSchema = new Schema({
+    quizName: {
+        type: String,
+        required: true
+    },
+    score: {
+        type: Number
+    }
+})
+
 const userSchema = new Schema({
     userName: {
         type: String,
@@ -10,7 +20,8 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    quizzes: [quizSchema]
 }, { timestamps: true })
 
 
