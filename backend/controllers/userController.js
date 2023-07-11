@@ -71,10 +71,138 @@ const updateUser = async (req, res) => {
     res.status(200).json(user)
 }
 
+// get a single quiz from user
+const getQuiz = async (req, res) => {
+    const {id, quizName} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        // retrieve user
+        const user = await User.findById(id)
+
+        if (!User.findById(id).quizzes.exists({name: quizName})) {
+            return res.status(404).json({error: "No such quiz"})
+        }
+
+        // retrieve quiz within user
+        const quiz = await user.quizzes.findOne({name: quizName})
+        res.status(200).json(quiz)
+    }
+    catch (e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
+// get all of a user's quizzes
+const getQuizzes = async (req, res) => {
+    const {id} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        const user = await User.findById(id)
+        res.status(200).json(user.quizzes)
+    }
+    catch (e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
+// create a new quiz for user
+const createQuiz = async (req, res) => {
+    const {id, quizName} = req.params
+    const quizScore = req.body.score
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        // retrieve user
+        const user = await User.findById(id)
+
+        // create quiz data within user
+        const quiz = await user.quizzes.create({name: quizName, score: quizScore})
+        res.status(200).json(quiz)
+    }
+    catch (e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
+// delete a single quiz from user
+const deleteQuiz = async (req, res) => {
+    const {id, quizName} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        // retrieve user
+        const user = await User.findById(id)
+
+        if (!User.findById(id).quizzes.exists({name: quizName})) {
+            return res.status(404).json({error: "No such quiz"})
+        }
+
+        // delete single quiz data within user
+        const quiz = await user.quizzes.findOneAndDelete({name: quizName})
+        res.status(200).json(quiz)
+    }
+    catch (e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
+// update a single quiz for user
+const updateQuiz = async (req, res) => {
+    const {id, quizName} = req.params
+    const quizScore = req.body.score
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        // retrieve user
+        const user = await User.findById(id)
+
+        if (!User.findById(id).quizzes.exists({name: quizName})) {
+            return res.status(404).json({error: "No such quiz"})
+        }
+
+        // retrieve quiz within user
+        const quiz = await user.quizzes.findOne({name: quizName})
+        quiz.score = quizScore
+        quiz.save()
+
+        res.status(200).json(quiz)
+    }
+    catch (e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
 module.exports = {
     getUser,
     getUsers,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    getQuiz,
+    getQuizzes,
+    createQuiz,
+    deleteQuiz,
+    updateQuiz
 }
