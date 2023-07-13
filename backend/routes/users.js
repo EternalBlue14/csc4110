@@ -33,10 +33,10 @@ router.patch('/:id', updateUser)
 router.get('/:id/:quizName', getQuiz)
 
 // GET all quizzes
-router.get('/:id/quizzes', getQuizzes)
+router.get('/:id/quiz', getQuizzes)
 
 // POST a new quiz
-router.post('/:id/:quizName', createQuiz)
+router.post('/:id/quiz', createQuiz)
 
 // DELETE a quiz
 router.delete('/:id/:quizName', deleteQuiz)
