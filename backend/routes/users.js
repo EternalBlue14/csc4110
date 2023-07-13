@@ -30,18 +30,18 @@ router.delete('/:id', deleteUser)
 router.patch('/:id', updateUser)
 
 // GET a single quiz
-router.get('/:id/quiz', getQuiz)
+router.get('/:id/:quizName', getQuiz)
 
 // GET all quizzes
-router.get('/:id/quiz/all', getQuizzes)
+router.get('/:id/quizzes', getQuizzes)
 
 // POST a new quiz
-router.post('/:id/quiz', createQuiz)
+router.post('/:id/:quizName', createQuiz)
 
 // DELETE a quiz
-router.delete('/:id/quiz', deleteQuiz)
+router.delete('/:id/:quizName', deleteQuiz)
 
 // UPDATE a quiz
-router.patch('/:id/quiz', updateQuiz)
+router.patch('/:id/:quizName', updateQuiz)
 
 module.exports = router
