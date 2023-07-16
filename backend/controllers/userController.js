@@ -158,8 +158,8 @@ const getQuizzes = async (req, res) => {
 
 // create a new quiz for user
 const createQuiz = async (req, res) => {
-    const {id, quizName} = req.params
-    const quizScore = req.body.score
+    const {id} = req.params
+    const {quizName, quizScore} = req.body
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "No such user"})
