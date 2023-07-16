@@ -3,7 +3,6 @@ require('dotenv').config() // package for global vars
 const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/users')
-const userLoggingRoutes = require('./routes/userLogging')
 
 const app = express()
 
@@ -17,7 +16,6 @@ app.use((req, res, next) => {
 
 // tell express app to use routes from /routes/users.js
 app.use('/api/users', userRoutes)  // /api/users defines request root
-app.use('/api/userLogging', userLoggingRoutes)
 
 mongoose.connect(process.env.MONG_URI)
     .then(() => {
