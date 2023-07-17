@@ -5,7 +5,7 @@ const validator = require('validator')
 const Schema = mongoose.Schema
 
 const quizSchema = new Schema({
-    quizName: {
+    name: {
         type: String,
         required: true
     },
