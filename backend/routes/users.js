@@ -38,7 +38,7 @@ router.delete('/:id', deleteUser)
 router.patch('/:id', updateUser)
 
 // GET a single quiz
-router.get('/:id/:quizName', getQuiz)
+router.get('/:id/quiz/:quizName', getQuiz)
 
 // GET all quizzes
 router.get('/:id/quiz', getQuizzes)
@@ -47,9 +47,9 @@ router.get('/:id/quiz', getQuizzes)
 router.post('/:id/quiz', createQuiz)
 
 // DELETE a quiz
-router.delete('/:id/:quizName', deleteQuiz)
+router.delete('/:id/quiz/:quizName', deleteQuiz)
 
 // UPDATE a quiz
-router.patch('/:id/:quizName', updateQuiz)
+router.patch('/:id/quiz/:quizName', updateQuiz)
 
 module.exports = router
