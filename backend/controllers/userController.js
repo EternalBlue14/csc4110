@@ -125,7 +125,7 @@ const getQuiz = async (req, res) => {
         const user = await User.findById(id)
 
         // retrieve quiz within user
-        const quiz = user.quizzes.filter((quiz) => {return quiz.name === quizName})[0]
+        const quiz = user.quizzes.filter((quiz) => {return quiz.quizName === quizName})[0]
         
         if(!quiz) {
             return res.status(404).json({error: "No such quiz"})
@@ -169,14 +169,14 @@ const createQuiz = async (req, res) => {
     try {
         // retrieve user
         const user = await User.findById(id)
-        const quiz = user.quizzes.filter((quiz) => {return quiz.name === quizName})[0]
+        const quiz = user.quizzes.filter((quiz) => {return quiz.quizName === quizName})[0]
 
         if(quiz) {
             return res.status(400).json({error: "Quiz already exists"})
         }
         
         // create quiz data within user
-        user.quizzes.push({"name": quizName, "score": quizScore})
+        user.quizzes.push({quizName, quizScore})
         user.save()
 
         res.status(200).json({user})
@@ -198,14 +198,13 @@ const deleteQuiz = async (req, res) => {
     try {
         // retrieve user
         const user = await User.findById(id)
+        // remove quiz
+        user.quizzes.pull({quizName})
+        user.save()
 
-        if (!User.findById(id).quizzes.exists({name: quizName})) {
-            return res.status(404).json({error: "No such quiz"})
-        }
-
-        // delete single quiz data within user
-        const quiz = await user.quizzes.findOneAndDelete({name: quizName})
-        res.status(200).json(quiz)
+        // needed for updated view after deletion
+        const updatedUser = await User.findById(id)
+        res.status(200).json(updatedUser)
     }
     catch (e) {
         console.log(e.message)
