@@ -215,7 +215,7 @@ const deleteQuiz = async (req, res) => {
 // update a single quiz for user
 const updateQuiz = async (req, res) => {
     const {id, quizName} = req.params
-    const quizScore = req.body.score
+    const quizScore = req.body.quizScore
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "No such user"})
@@ -224,15 +224,16 @@ const updateQuiz = async (req, res) => {
     try {
         // retrieve user
         const user = await User.findById(id)
+        // retrieve quiz
+        const quiz = user.quizzes.filter((quiz) => {return quiz.quizName === quizName})[0]
 
-        if (!User.findById(id).quizzes.exists({name: quizName})) {
+        if (!quiz) {
             return res.status(404).json({error: "No such quiz"})
         }
 
         // retrieve quiz within user
-        const quiz = await user.quizzes.findOne({name: quizName})
-        quiz.score = quizScore
-        quiz.save()
+        quiz.quizScore = quizScore
+        user.save()
 
         res.status(200).json(quiz)
     }
