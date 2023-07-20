@@ -243,6 +243,37 @@ const updateQuiz = async (req, res) => {
     }
 }
 
+// return average quiz score for user
+const quizAverage = async (req, res) => {
+    const {id} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        const user = await User.findById(id)
+
+        if (!user.quizzes.length) {
+            return res.status(404).json({error: "User has no quizzes"})
+        }
+
+        let quizAverage = 0
+        let idx = 0
+
+        for (; idx < user.quizzes.length; ++idx) {
+            quizAverage += user.quizzes[idx].quizScore
+        }
+        quizAverage /= idx
+
+        res.status(200).json({quizAverage})
+    }
+    catch(e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
 module.exports = {
     loginUser,
     signupUser,
@@ -255,5 +286,6 @@ module.exports = {
     getQuizzes,
     createQuiz,
     deleteQuiz,
-    updateQuiz
+    updateQuiz,
+    quizAverage
 }

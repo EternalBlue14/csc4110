@@ -11,7 +11,8 @@ const {
     getQuizzes,
     createQuiz,
     deleteQuiz,
-    updateQuiz
+    updateQuiz,
+    quizAverage
 } = require('../controllers/userController')
 
 const router = express.Router()
@@ -51,5 +52,8 @@ router.delete('/:id/quiz/:quizName', deleteQuiz)
 
 // UPDATE a quiz
 router.patch('/:id/quiz/:quizName', updateQuiz)
+
+// GET average quiz score
+router.get('/:id/quizAvg', quizAverage)
 
 module.exports = router
