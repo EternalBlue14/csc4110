@@ -8,7 +8,6 @@ import {
 //import logo from './sblogo.png';
 import Header from './components/Header';
 import './App.css';
-import './App.css';
 import Sidenav from './components/Sidenav';
 import Topic1 from "./pages/Topic1";
 import Dashboard from "./pages/Dashboard";

@@ -1,9 +1,12 @@
 .header {
-    padding: 13px;
-    text-align: center;
-    background: #5A8EF4;
-  }
-  .header img {
-    width: 125px;
-    height: 82px;
-  }
+  padding: 13px;
+  text-align: center;
+  background: #5A8EF4;
+  width: 100%;
+  
+
+}
+.header img {
+  width: 125px;
+  height: 82px;
+}
