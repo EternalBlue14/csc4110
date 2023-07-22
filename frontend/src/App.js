@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Login from './pages/login';
 import Signup from './pages/Signup';
+import quiz from "./pages/quiz_base";
 
 
 function App() {
