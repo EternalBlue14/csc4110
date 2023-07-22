@@ -1,32 +1,34 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
-import { useLogin } from "../hooks/useLogin"
+import { useSignup } from "../hooks/useSignup"
 
-export default function Login() {
-  const [userName, setuserName] = useState('');
+  
+
+export default function Signup() {
+  const [userName, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {login, error, isLoading} = useLogin()
+  const {signup, error, isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-    await login(userName, password)
+    //console.log(userName, password)
+    await signup(userName, password)
   }
 
   return (
 
     <div className="study-buddy-container">
-      <img src="Study Buddy Logo.png" alt="Study Buddy Logo" />
+      <img src="/csc4110/frontend/public/Study Buddy Logo.png" alt="Study Buddy Logo" />
 
-      <form className="login" onSubmit={handleSubmit}>
+      <form className="signup" onSubmit={handleSubmit}>
         <div className="username-container">
-          <label htmlFor="email">Enter your Email (Login):</label>
+          <label htmlFor="email">Enter your Email (Signup):</label>
           <br />
           <input
             type="email"
-            onChange={(e) => setuserName(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             value={userName}
           />
         </div>
@@ -42,13 +44,13 @@ export default function Login() {
         </div>
 
         <div className="submit-container">
-          <button disabled={isLoading}>Log in</button>
+          <button disabled={isLoading}>Sign up</button>
           {error && <div className="error">{error}</div>}
         </div>
       </form>
 
       <div className="tan-box">
-          <Link to="/Signup">Switch to Sign Up</Link>
+          <Link to="/Login">Switch to Login</Link>
         </div>
 
       <div className="sections-container">
