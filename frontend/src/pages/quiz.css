@@ -1,0 +1,13 @@
+.TitleContainer{
+    position: absolute;
+    text-align: center;
+}
+
+.QuizContainer{
+    position: absolute;
+    padding: 50px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: #5a8ef4;
+}
