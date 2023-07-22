@@ -12,7 +12,7 @@ import Sidenav from './components/Sidenav';
 import Topic1 from "./pages/Topic1";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
-import Login from './pages/Login';
+import Login from './pages/login';
 import Signup from './pages/Signup';
 
 
