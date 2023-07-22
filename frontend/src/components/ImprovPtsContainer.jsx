@@ -1,3 +1,4 @@
+//Reserved for possible future use
 import React from 'react';
 import './ImprovPtsContainer.css';
 
