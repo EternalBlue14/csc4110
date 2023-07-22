@@ -15,13 +15,13 @@ export default function Topic1() {
         </div>
     
         <div classname='modulebutton1' style={{ marginLeft: 300}}>
-          <Link to="/quiz_base">  
+          <Link to="/Topic1/Quiz">  
           <ModuleButton />
           </Link>
         </div>
 
          <div classname='modulebutton2' style={{ marginLeft: 600, marginTop: 200}}>
-          <Link to="/quiz_base">  
+          <Link to="/Topic1/Quiz">  
           <ModuleButton />
           </Link>
         </div>

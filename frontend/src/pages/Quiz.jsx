@@ -2,13 +2,11 @@ import React from 'react';
 import './quiz.css';
 import QuizContainer from '../components/QuizContainer';
 
-//import ImprovPtsContainer from '../components/ImprovPtsContainer';
-
-export default function quiz() {
+export default function Quiz() {
     return (
       <div>
         <div>
-          <h1>Quiz</h1>
+          <h1 align="center">Quiz</h1>
         </div>
         <div className='QuizContainer'>
           <QuizContainer />
