@@ -1,3 +1,4 @@
+
 .Title{
     position:absolute;
     width: fill;
@@ -5,10 +6,16 @@
 }
 
 .QuizContainer{
+    /* position: absolute; */
     position: absolute;
-    padding: 50px;
-    width: fill;
-    height: auto;
+    padding: 16px;
+    /* width: fill; */
+    width: 50%;
+    /* height: 150px; */
+    border-radius: 16px;
+    margin: 0 auto;
     text-align: center;
     background-color: #5a8ef4;
-}
+    margin-left: 60px;
+    margin-right: 150px;
+} 

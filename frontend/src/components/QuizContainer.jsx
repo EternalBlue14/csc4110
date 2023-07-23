@@ -1,6 +1,23 @@
+import './QuizContainer.css';
 import React, { useState } from 'react';
+import {Navigate, useNavigate} from 'react-router-dom';
+
 
 function QuizContainer(){
+
+	const navigate = useNavigate()
+	
+	const handleGoBack = () => {
+		navigate(-1);
+	}
+
+	const handleRestartQuiz = () => {
+		setCurrentQuestion(0);
+		setShowScore(false);
+		setScore(0);
+	  };
+
+
     const questions = [
 		{
 			questionText: 'sin(0)',
@@ -61,14 +78,20 @@ function QuizContainer(){
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
+					{/* <button className='round-button' onClick={handleGoBack}>Go Back</button>
+					<button className='round-button' onClick={handleRestartQuiz}>Restart</button> */}
+					<div className = 'button-container'>
+						<button className='round-button' onClick={handleGoBack}>Go Back</button>
+						<button className='round-button' onClick={handleRestartQuiz}>Restart</button>
+					</div>
 				</div>
 			) : (
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
+							<h1><span>Question {currentQuestion + 1}</span>/{questions.length}</h1>
 						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
+						<h2><div className='question-text'>{questions[currentQuestion].questionText}</div></h2>
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
