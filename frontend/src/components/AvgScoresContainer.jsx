@@ -62,16 +62,16 @@ function AvgScoresContainer(){
 }*/
 
 import React, {useState, useEffect} from 'react';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const AvgScoresContainer = () => {
-    //user is the variable we are working with
+   
     const [user, setUser] = useState([]);
-  
-    // Fetch data from backend API, currently using another api for testing
+
     useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/users') //need to insert our API path here
+      fetch('/api/users') 
         .then((response) => response.json())
-        .then((data) => setUser(data)) //takes the setUser from above
+        .then((data) => setUser(data)) 
         .catch((error) => console.error('Error fetching data:', error));
     }, []);
 
@@ -109,6 +109,7 @@ const AvgScoresContainer = () => {
       });
     };
     */
+
     return(
         <div className='avgscores-container'>
             <h1>Average Score</h1>
