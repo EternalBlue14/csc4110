@@ -160,7 +160,7 @@ const getQuizzes = async (req, res) => {
 // create a new quiz for user
 const createQuiz = async (req, res) => {
     const {id} = req.params
-    const {quizName, quizScore} = req.body
+    const {quizName, quizTopic, quizScore} = req.body
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "No such user"})
@@ -176,7 +176,7 @@ const createQuiz = async (req, res) => {
         }
         
         // create quiz data within user
-        user.quizzes.push({quizName, quizScore})
+        user.quizzes.push({quizName, quizTopic, quizScore})
         user.save()
 
         res.status(200).json({user})
@@ -243,6 +243,66 @@ const updateQuiz = async (req, res) => {
     }
 }
 
+// get all user quizzes of a topic
+const getTopicQuizzes = async (req, res) => {
+    const {id, quizTopic} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        // retrieve user
+        const user = await User.findById(id)
+
+        // retrieve quizzes within user
+        const quizzes = user.quizzes.filter((quiz) => {return quiz.quizTopic === quizTopic.toLowerCase()})
+        
+        if(!quizzes.length) {
+            return res.status(404).json({error: "No such quizzes"})
+        }
+        
+        res.status(200).json({quizzes})
+    }
+    catch (e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
+// return average topic score for user
+const topicAverage = async (req, res) => {
+    const {id, quizTopic} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    try {
+        const user = await User.findById(id)
+        
+        const quizzes = user.quizzes.filter((quiz) => {return quiz.quizTopic === quizTopic.toLowerCase()})
+
+        if (!quizzes.length) {
+            return res.status(404).json({error: "No such quizzes"})
+        }
+
+        let topicAverage = 0
+        let idx = 0
+
+        for (; idx < quizzes.length; ++idx) {
+            topicAverage += quizzes[idx].quizScore
+        }
+        topicAverage /= idx
+
+        res.status(200).json({topicAverage})
+    }
+    catch(e) {
+        console.log(e.message)
+        res.status(400).json({error: e.message})
+    }
+}
+
 // return average quiz score for user
 const quizAverage = async (req, res) => {
     const {id} = req.params
@@ -287,5 +347,7 @@ module.exports = {
     createQuiz,
     deleteQuiz,
     updateQuiz,
+    getTopicQuizzes,
+    topicAverage,
     quizAverage
 }
