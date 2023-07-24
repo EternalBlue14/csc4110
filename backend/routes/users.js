@@ -14,7 +14,8 @@ const {
     updateQuiz,
     getTopicQuizzes,
     topicAverage,
-    quizAverage
+    quizAverage, 
+    getUserName
 } = require('../controllers/userController')
 
 const router = express.Router()
@@ -27,6 +28,8 @@ router.post('/signup', signupUser)
 
 // GET a single user
 router.get('/:id', getUser)
+// GET a user by username
+router.get('/name/:userName', getUserName)
 
 // GET all users
 router.get('/', getUsers)

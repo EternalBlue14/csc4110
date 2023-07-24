@@ -66,6 +66,18 @@ const getUser = async (req, res) => {
     res.status(200).json({user})
 }
 
+const getUserName = async (req, res) => {
+    const {userName} = req.params
+
+    const user = await User.findOne({userName: userName})
+
+    if (!user) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    res.status(200).json({user})
+}
+
 // create new user
 const createUser = async (req, res) => {
     const {userName, password} = req.body
@@ -349,5 +361,6 @@ module.exports = {
     updateQuiz,
     getTopicQuizzes,
     topicAverage,
-    quizAverage
+    quizAverage, 
+    getUserName
 }
