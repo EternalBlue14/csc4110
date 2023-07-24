@@ -26,8 +26,8 @@ const AvgScoresContainer = ({userID}) => {
     datasets: [
       {
         label: 'Quiz Score',
-        data: [80, 90, 70],//user.map((dataItem) => dataItem.getQuizzes), // Assuming value is available in the user data
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        data: [80, 90, 70],//user.map((dataItem) => dataItem.getAverage), // Assuming value is available in the user data
+        backgroundColor: '#fff04d',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
       },
@@ -36,7 +36,7 @@ const AvgScoresContainer = ({userID}) => {
   
 
   return(
-    <div className='avgscores-container'>
+    <div>
       <h1>Average Score</h1>
         <Bar data={chartData} />
     </div>
@@ -46,8 +46,7 @@ const AvgScoresContainer = ({userID}) => {
 export default AvgScoresContainer
 
 /*
-//This is the old code, saving it in case i need parts of it until charts
-//are fully functional
+//This is the old code, saving just in case for posterity
 import {
   Chart as ChartJS,
   CategoryScale,

@@ -3,11 +3,12 @@
     right: 10px;
     top: 200px;
     width: 360px;
+    height: 300px;
     padding: 20px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    background-color: #5a8ef4;
+    background-color: #a2bcf0;
 }
 
 .ProgressContainer{
@@ -18,5 +19,5 @@
     height: 400px;
     padding: 50px;
     text-align: center;
-    background-color: #5a8ef4;
+    background-color: #a2bcf0;
 }
