@@ -4,83 +4,43 @@ import { Chart as ChartJS, registerables } from 'chart.js/auto';
 ChartJS.register(...registerables);
 
 const AvgScoresContainer = ({userID}) => {
-  const [quizAvg, setQuizAvg] = useState([]); //for average score
-  const [score, setScore] = useState([]); //for high and low scores
+  //Keeping track to ensure _id value indeed has passed into this container
+  console.log('userID track avgscores cont:', userID);
+
+  /////Fetch api call that takes _id to extract quiz average score/////
+  const [quizAvg, setQuizAvg] = useState([]);
   
-  //Quiz Avg Score Set Up
-  const fetchQuizAvg = async (userID) => {
-    const response = await fetch(`/api/users/646cbaeb3f3d85ce7fc495b9/quizAvg`);
+  //Quiz average score api call
+  const fetchQuizAvg = async (id) => {
+    const response = await fetch(`/api/users/${id}}quizAvg`);
     const userData = await response.json();
     return userData;
   };
   
+  //Use effect sets quiz average value to the quizAvg variable which will be used to
+  //build the chart
   useEffect(() => {
     fetchQuizAvg(userID) // Fetch the user data when the component mounts
       .then((data) => setQuizAvg(data))
       .catch((error) => console.error('Error fetching user data:', error));
   }, [userID]);
 
-  //High & Low Score Set Up
-  const fetchHighLowScore = async (userID) => {
-    const response = await fetch(`/api/users/646cbaeb3f3d85ce7fc495b9/quiz`);
-    const userData = await response.json();
-    const arr = [];
-    for (const key in userData) {
-      const arrObj = userData[key];
-      arrObj['id'] = key;
-      arr.push(arrObj)
-    }
-    const quizArr = arr.map((dataItem) => dataItem.quizScore);
-    console.log(quizArr);
-    if (Array.isArray(quizArr)){
-      console.log('API resonse is an array');
-    }
-    else
-      console.log('API response is not an array');
-    return quizArr;
-  };
-
-  useEffect(() => {
-    fetchHighLowScore(userID) // Fetch the user data when the component mounts
-      .then((data) => setScore(data))
-      .catch((error) => console.error('Error fetching user data:', error));
-  }, [userID]);
-
-  /*
-  const calcHighScore = async(score) => {
-    for(var i = 0; i < score.length; i++){
-      for (var j = 0; j < i; j++){
-        if (score[i] > score[j].length) {
-          quizHighSc = score;
-          break;
-        }
-      }
-    }
-  }
-  useEffect(() => {
-    calcHighScore(score)
-      .then((data) => setQuizHighSc(data))
-      .catch((error) => console.error('Error fetching user data:', error));
-  }, [score]);
-
-  console.log(quizHighSc);
-*/
-  // Prepare data for the chart
+  /////Prepare data for the chart using the quizAvg variable we set above/////
+  // BUG: For some reason two labels on x axis appears despite there being data for only one
   const chartData = {
-    labels: ['Average Quiz Score', 'Highest Quiz Score', 'Lowest Quiz Score'],
+    labels: ['Average Quiz Score'],
     datasets: [
       {
         label: 'Quiz Score',
-        data: quizAvg,//[quizAvgSc, quizHighSc, quizLowSc],
+        data: quizAvg,
         backgroundColor: '#fff04d',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
       },
     ],
   };
-  
-  
 
+  //Return function that loads the chart with the data
   return(
     <div>
       <h1>Average Score</h1>
@@ -176,4 +136,53 @@ function AvgScoresContainer(){
         },
       });
     };
+*/
+
+  //High & Low Score Set Up
+  //This section is no longer necessary as this information is displayed on the progress container
+  //keeping it for posterity/future maintenance
+  /*
+  const [score, setScore] = useState([]); //for high and low scores
+  const fetchHighLowScore = async (userID) => {
+    const response = await fetch(`/api/users/646cbaeb3f3d85ce7fc495b9/quiz`);
+    const userData = await response.json();
+    const arr = [];
+    for (const key in userData) {
+      const arrObj = userData[key];
+      arrObj['id'] = key;
+      arr.push(arrObj)
+    }
+    const quizArr = arr.map((dataItem) => dataItem.quizScore);
+    console.log(quizArr);
+    if (Array.isArray(quizArr)){
+      console.log('API resonse is an array');
+    }
+    else
+      console.log('API response is not an array');
+    return quizArr;
+  };
+
+  useEffect(() => {
+    fetchHighLowScore(userID) // Fetch the user data when the component mounts
+      .then((data) => setScore(data))
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, [userID]);
+
+  const calcHighScore = async(score) => {
+    for(var i = 0; i < score.length; i++){
+      for (var j = 0; j < i; j++){
+        if (score[i] > score[j].length) {
+          quizHighSc = score;
+          break;
+        }
+      }
+    }
+  }
+  useEffect(() => {
+    calcHighScore(score)
+      .then((data) => setQuizHighSc(data))
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, [score]);
+
+  console.log(quizHighSc);
 */
