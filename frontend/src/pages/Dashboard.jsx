@@ -18,11 +18,12 @@ const Dashboard = () =>{
         <ProgressContainer />
       </div>
       <div className='AvgScoresContainer'>
-        <AvgScoresContainer />
+        <AvgScoresContainer userID={user} />
       </div>
     </div>
   )
 }
+
 /*
 export default function Dashboard() {
   const {userID} = useAuthContext();
