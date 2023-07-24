@@ -8,7 +8,14 @@ import AvgScoresContainer from '../components/AvgScoresContainer';
 
 const Dashboard = () =>{
   const {user} = useAuthContext();
-  
+  /*
+  const [userID, setUserID] = useState([]);
+
+  if (userID != user){
+    return <Navigate replace to='/login' />
+  }
+  */
+
   return (
     <div>
       <div>
@@ -24,6 +31,9 @@ const Dashboard = () =>{
   )
 }
 
+export default Dashboard
+
+//Old code below
 /*
 export default function Dashboard() {
   const {userID} = useAuthContext();
@@ -58,5 +68,3 @@ export default function Dashboard() {
   )
 }
 */
-
-export default Dashboard
