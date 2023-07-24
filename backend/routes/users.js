@@ -12,6 +12,8 @@ const {
     createQuiz,
     deleteQuiz,
     updateQuiz,
+    getTopicQuizzes,
+    topicAverage,
     quizAverage
 } = require('../controllers/userController')
 
@@ -52,6 +54,12 @@ router.delete('/:id/quiz/:quizName', deleteQuiz)
 
 // UPDATE a quiz
 router.patch('/:id/quiz/:quizName', updateQuiz)
+
+// GET all quizzes in topic
+router.get('/:id/topic/:quizTopic', getTopicQuizzes)
+
+// GET average topic score
+router.get('/:id/topicAvg/:quizTopic', topicAverage)
 
 // GET average quiz score
 router.get('/:id/quizAvg', quizAverage)

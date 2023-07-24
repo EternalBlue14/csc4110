@@ -9,6 +9,10 @@ const quizSchema = new Schema({
         type: String,
         required: true
     },
+    quizTopic: {
+        type: String,
+        lowercase: true
+    },
     quizScore: {
         type: Number
     }
