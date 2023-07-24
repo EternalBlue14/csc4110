@@ -7,7 +7,7 @@ import QuizContainer from "../components/QuizContainer";
 import React, {useState} from "react";
 import './Topic1.css';
 
-export default function Topic1() {
+export default function UnitConversions() {
 
     const [showQuiz, setShowQuiz] = useState(false);
 
@@ -15,22 +15,20 @@ export default function Topic1() {
       console.log('Module button clicked');
       setShowQuiz(true);
     }
-
     return (
       //<><h2>Topic1</h2><ModuleButton /><FinalModuleButton /></>
 
       <>
          <div className='topicname'>
-           <h2>Topic1</h2>
+           <h2>UnitConversions</h2>
          </div>
   
          <div className='topic-container'>
            <div className='modulebutton1'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/Topic1/Quiz">
+             <Link to="/UnitConversions/Quiz">
               <ModuleButton />
-             </Link> 
-             
+             </Link>
 
            </div>
   
@@ -77,66 +75,3 @@ export default function Topic1() {
 
     )
   }
-
-    //   <>
-    //   <div className='topicname'>
-    //     <h2>Topic1</h2>
-    //   </div>
-
-    //   <div className='topic-container'>
-    //     <div className='modulebutton1'>
-    //       <ModuleButton onClick={handleModuleClick} />
-    //     </div>
-
-    //     <div className='modulebutton2'>
-    //       <ModuleButton onClick={handleModuleClick} />
-    //     </div>
-
-    //     <div className='modulebutton3'>
-    //       <ModuleButton onClick={handleModuleClick} />
-    //     </div>
-
-    //     <div className='finalmodulebutton'>
-    //       <FinalModuleButton />
-    //     </div>
-    //   </div>
-
-    //   {showQuiz && <QuizContainer />}
-    // </>
-
-      // <>
-      //   <div className='topicname'>
-      //     <h2>
-      //       Topic1
-      //     </h2>
-      //   </div>
-    
-      //   <div className='modulebutton1' style={{ marginLeft: 100}}>
-      //     {/* <Link to="/Topic1/Quiz">  
-      //     <ModuleButton />
-      //     </Link> */}
-      //     <ModuleButton onClick={handleModuleClick} />
-      //     {/* <ModuleButton /> */}
-
-      //   </div>
-
-      //    <div className='modulebutton2' style={{ marginLeft: 250, marginTop: 150}}>
-      //     {/* <Link to="/Topic1/Quiz">  
-      //      <ModuleButton /> 
-      //     </Link> */}
-      //     <ModuleButton onClick={handleModuleClick} />
-
-      //   </div>
-
-      //   <div className='modulebutton3' style={{ marginLeft: 100, marginTop: 150}}>
-      //     {/* <ModuleButton /> */}
-      //     <ModuleButton onClick={handleModuleClick} />
-
-      //   </div>
-       
-      //   <div className='finalmodulebutton' style={{ marginLeft: 250, marginTop: 300}}>
-      //     <FinalModuleButton />
-      //   </div>
-
-      //   {showQuiz && <QuizContainer />}
-      // </>

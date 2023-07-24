@@ -15,9 +15,11 @@ import About from "./pages/About";
 import Login from './pages/login';
 import Signup from './pages/Signup';
 import Quiz from "./pages/Quiz";
+import UnitConversions from "./pages/UnitConversions";
 
 
 function App() {
+
   return (
     <div className="App">
       <Header />
@@ -26,10 +28,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />}/>
           <Route path="/Topic1" element={<Topic1 />} />
+          <Route path="/UnitConversions" element={<UnitConversions />} />
           <Route path="/About" element={<About />}/>
           <Route path="/Login" element={<Login />}/>
           <Route path="/Signup" element={<Signup />}/>
           <Route path="/Topic1/Quiz" element={<Quiz />} />
+          <Route path="/UnitConversions/Quiz" element={<Quiz />} />
         </Routes>
       </main>
     </div>

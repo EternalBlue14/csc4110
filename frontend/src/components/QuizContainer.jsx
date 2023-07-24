@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import {Navigate, useNavigate} from 'react-router-dom';
 
 
-function QuizContainer(){
+function QuizContainer(props){
+
+	const { questions } = props;
 
 	const navigate = useNavigate()
 	
@@ -17,45 +19,45 @@ function QuizContainer(){
 		setScore(0);
 	  };
 
-
-    const questions = [
-		{
-			questionText: 'sin(0)',
-			answerOptions: [
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-				{ answerText: '1/2', isCorrect: false },
-				{ answerText: '0', isCorrect: true },
-				{ answerText: 'pi', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'sin(pi)',
-			answerOptions: [
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-				{ answerText: '0', isCorrect: true },
-				{ answerText: '1/2', isCorrect: false },
-				{ answerText: '1', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'sin(pi/2)',
-			answerOptions: [
-				{ answerText: '1', isCorrect: true },
-				{ answerText: '0', isCorrect: false },
-				{ answerText: '1/2', isCorrect: false },
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'sin((3pi/2))',
-			answerOptions: [
-				{ answerText: '1', isCorrect: true },
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-				{ answerText: '0', isCorrect: false },
-				{ answerText: '1/2', isCorrect: false },
-			],
-		},
-	];
+	
+    // const questions = [
+	// 	{
+	// 		questionText: 'sin(0)',
+	// 		answerOptions: [
+	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
+	// 			{ answerText: '1/2', isCorrect: false },
+	// 			{ answerText: '0', isCorrect: true },
+	// 			{ answerText: 'pi', isCorrect: false },
+	// 		],
+	// 	},
+	// 	{
+	// 		questionText: 'sin(pi)',
+	// 		answerOptions: [
+	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
+	// 			{ answerText: '0', isCorrect: true },
+	// 			{ answerText: '1/2', isCorrect: false },
+	// 			{ answerText: '1', isCorrect: false },
+	// 		],
+	// 	},
+	// 	{
+	// 		questionText: 'sin(pi/2)',
+	// 		answerOptions: [
+	// 			{ answerText: '1', isCorrect: true },
+	// 			{ answerText: '0', isCorrect: false },
+	// 			{ answerText: '1/2', isCorrect: false },
+	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
+	// 		],
+	// 	},
+	// 	{
+	// 		questionText: 'sin((3pi/2))',
+	// 		answerOptions: [
+	// 			{ answerText: '1', isCorrect: true },
+	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
+	// 			{ answerText: '0', isCorrect: false },
+	// 			{ answerText: '1/2', isCorrect: false },
+	// 		],
+	// 	},
+	// ];
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
@@ -73,6 +75,10 @@ function QuizContainer(){
 			setShowScore(true);
 		}
 	};
+
+	if (!questions || questions.length === 0) {
+		return <div>Loading...</div>;
+	  }
 	return (
 		<div className='app'>
 			{showScore ? (
