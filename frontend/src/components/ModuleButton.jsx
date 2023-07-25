@@ -6,13 +6,14 @@ import React from "react";
 import { Circle } from 'react-awesome-shapes';
 import './ModuleButton.css';
 
-const ModuleButton = ({ onClick }) => (
+const ModuleButton = ({ onClick, children }) => (
   <div className='modulebutton' onClick={onClick}>
     <Circle
       color="linear-gradient(135deg, #a5b4fc, #5A8EF4)"
       size={['150px', '150px', '150px', '150px']}
       zIndex={2}
     />
+    <div className="button-text">{children}</div>
   </div>
 );
 

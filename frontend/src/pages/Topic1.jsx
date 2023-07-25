@@ -28,28 +28,27 @@ export default function Topic1() {
            <div className='modulebutton1'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
              <Link to="/Topic1/Quiz">
-              <ModuleButton />
+              <ModuleButton>Lecture</ModuleButton>
              </Link> 
              
 
            </div>
   
            <div className='modulebutton2'>
-             {/* <ModuleButton onClick={handleModuleClick} /> */}
              <Link to="/Topic1/Quiz">
-              <ModuleButton />
+              <ModuleButton>Quiz 1</ModuleButton>
              </Link>
            </div>
   
            <div className='modulebutton3'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
              <Link to="/Topic1/Quiz">
-              <ModuleButton />
+              <ModuleButton>Quiz 2</ModuleButton>
              </Link>
            </div>
   
            <div className='finalmodulebutton'>
-             <FinalModuleButton />
+             <FinalModuleButton>Quiz 3</FinalModuleButton>
            </div>
          </div>
   

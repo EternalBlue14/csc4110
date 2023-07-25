@@ -1,5 +1,26 @@
 .finalmodulebutton {
-    /* margin-top: 100px;
-    border: 0; */
-    margin: 0;
-} 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .finalmodulebutton .react-awesome-shapes-Circle {
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .final-button-text {
+    z-index: 2;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-0%, -150%); 
+    text-align: center;
+    white-space: nowrap;
+   
+    
+  }
