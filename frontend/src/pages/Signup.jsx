@@ -50,7 +50,7 @@ export default function Signup() {
       </form>
 
       <div className="tan-box">
-          <Link to="/Login">Switch to Login</Link>
+          <Link to="/">Switch to Login</Link>
         </div>
 
       <div className="sections-container">
