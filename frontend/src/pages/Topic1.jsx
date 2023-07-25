@@ -48,7 +48,9 @@ export default function Topic1() {
            </div>
   
            <div className='finalmodulebutton'>
-             <FinalModuleButton>Quiz 3</FinalModuleButton>
+            <Link to="/Topic1/Quiz3">
+              <FinalModuleButton>Quiz 3</FinalModuleButton>
+            </Link>
            </div>
          </div>
   

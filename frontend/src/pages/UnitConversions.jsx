@@ -47,7 +47,10 @@ export default function UnitConversions() {
            </div>
   
            <div className='finalmodulebutton'>
-             <FinalModuleButton>Quiz 3</FinalModuleButton>
+            <Link to="/UnitConversions/Quiz3">
+              <FinalModuleButton>Quiz 3</FinalModuleButton>
+            </Link>
+             
            </div>
          </div>
   
