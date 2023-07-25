@@ -16,6 +16,7 @@ import Login from './pages/login';
 import Signup from './pages/Signup';
 import Quiz from "./pages/Quiz";
 import UnitConversions from "./pages/UnitConversions";
+import Logout from "./pages/Logout";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/" element={<Login />} />
           <Route path="/Dashboard" element={<Dashboard />}/>
           <Route path="/Topic1" element={<Topic1 />} />
+          <Route path="/Logout" element={<Logout />} />
           <Route path="/UnitConversions" element={<UnitConversions />} />
           <Route path="/About" element={<About />}/>
           <Route path="/Signup" element={<Signup />}/>

@@ -27,6 +27,6 @@ export const navData = [
         id: 3,
         icon: <LogoutIcon/>,
         text: "Logout",
-        link: "logout"
+        link: "Logout"
     }
 ]
