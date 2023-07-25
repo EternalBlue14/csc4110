@@ -4,9 +4,9 @@ import {Navigate, useNavigate} from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 
-function QuizContainer(props, topic){
+function QuizContainer( props ){
 
-	const { questions } = props;
+	const { questions, topic } = props;
 
 	const navigate = useNavigate()
 	
@@ -37,10 +37,8 @@ function QuizContainer(props, topic){
 		}
 	};
 	const login = useAuthContext();
-
-	if (!questions || questions.length === 0) {
-		
-  		const arr = [];
+	if (showScore == true) {
+		const arr = [];
   		for (const key in login) {
     		const arrObj = login[key];
     		arrObj['id'] = key;
@@ -51,20 +49,23 @@ function QuizContainer(props, topic){
   		//Convert the array to just a standard variable with one value since the above array is saved as
   		//[userName, undefined] and we need a single value variable to pass into the api call
   		var userNamed;
-  		for (var i = 0; i <= userArr.length; i++)
-  		{
-  		  userNamed = userArr[0];
-  		}  
-  		console.log(userNamed); //Keeping track to ensure the above operation performs as intended
-		  const requestOptions = {
+  		userNamed = userArr[0];
+
+		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ userNamed, score, topic })
+			body: JSON.stringify({ quizName: userNamed, quizScore: score, quizTopic: topic })
 		};
 		fetch(`/api/users/${ userNamed }/quiz`, requestOptions)
 			.then(response => response.json())
-			.then(console.log(userNamed));
+			.then(console.log(userNamed))
+			.then(console.log(score))
+			.then(console.log(topic));
 		
+	}
+	if (!questions || questions.length === 0) {
+		
+  		
 		return <div>Loading...</div>;
 	}
 	  
