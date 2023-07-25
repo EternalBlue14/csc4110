@@ -182,7 +182,7 @@ const createQuiz = async (req, res) => {
         user.quizzes.push({quizName, quizTopic, quizScore})
         user.save()
 
-        res.status(200).json({user})
+        res.status(200).json({user, quizScore, quizTopic})
     }
     catch (e) {
         console.log(e.message)
