@@ -17,6 +17,10 @@ import Signup from './pages/Signup';
 import Quiz from "./pages/Quiz";
 import UnitConversions from "./pages/UnitConversions";
 import Logout from "./pages/Logout";
+import T1Lecture from "./pages/T1Lecture";
+import UCLecture from "./pages/UCLecture";
+import Quiz2 from "./pages/Quiz2";
+import Quiz3 from "./pages/Quiz3";
 
 
 function App() {
@@ -38,6 +42,12 @@ function App() {
           <Route path="/Signup" element={<Signup />}/>
           <Route path="/Topic1/Quiz" element={<Quiz />} />
           <Route path="/UnitConversions/Quiz" element={<Quiz />} />
+          <Route path="/Topic1/T1Lecture" element={<T1Lecture />} />
+          <Route path="/UnitConversions/UCLecture" element={<UCLecture />} />
+          <Route path="/Topic1/Quiz2" element={<Quiz2 />} />
+          <Route path="/UnitConversions/Quiz2" element={<Quiz2 />} />
+          <Route path="/UnitConversions/Quiz3" element={<Quiz3 />} />
+          <Route path="/Topic1/Quiz3" element={<Quiz3 />} />
         </Routes>
       </main>
     </div>

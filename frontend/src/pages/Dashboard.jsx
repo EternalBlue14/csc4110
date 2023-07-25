@@ -7,7 +7,6 @@ import { useAuthContext } from '../hooks/useAuthContext';
 //import ImprovPtsContainer from '../components/ImprovPtsContainer';
 
 const Dashboard = () =>{
-
   const [user, setUser] = useState([]);
 
   /////Convert authContext data and extract userName/////
@@ -55,14 +54,11 @@ const Dashboard = () =>{
     fetchUser(userNamed)
       .then((data) => setUser(data)) //takes the setUser from above
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
-
+  }, [userNamed]);
+  
   /*
-  //Possible implementation of forcing the user to login screen if they have not logged in
-  const [userID, setUserID] = useState([]);
-
-  if (userID != user){
-    return <Navigate replace to='/login' />
+  if (user != login){
+    return <Navigate replace to='/dashboard' />
   }
   */
 
@@ -70,15 +66,24 @@ const Dashboard = () =>{
   //pass it to each container
   return (
     <div>
-      <div>
-        <h1>Dashboard</h1>
-      </div>
-      <div className='ProgressContainer'>
-        <ProgressContainer userID={user}/>
-      </div>
-      <div className='AvgScoresContainer'>
-        <AvgScoresContainer userID={user} />
-      </div>
+      {user && (
+        <div>
+            <div>
+              <h1>Dashboard</h1>
+            </div>
+            <div className='ProgressContainer'>
+              <ProgressContainer userID={user}/>
+            </div>
+            <div className='AvgScoresContainer'>
+              <AvgScoresContainer userID={user} />
+            </div>
+        </div>
+      )}
+      {!user && (
+        <div>
+          <Navigate to= '/'/>
+        </div>
+      )}
     </div>
   )
 }

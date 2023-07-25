@@ -21,13 +21,13 @@ export default function Topic1() {
 
       <>
          <div className='topicname'>
-           <h2>Topic1</h2>
+           <h2>Pre-Calculus</h2>
          </div>
   
          <div className='topic-container'>
            <div className='modulebutton1'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/Topic1/Quiz">
+             <Link to="/Topic1/T1Lecture">
               <ModuleButton>Lecture</ModuleButton>
              </Link> 
              
@@ -42,13 +42,15 @@ export default function Topic1() {
   
            <div className='modulebutton3'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/Topic1/Quiz">
+             <Link to="/Topic1/Quiz2">
               <ModuleButton>Quiz 2</ModuleButton>
              </Link>
            </div>
   
            <div className='finalmodulebutton'>
-             <FinalModuleButton>Quiz 3</FinalModuleButton>
+            <Link to="/Topic1/Quiz3">
+              <FinalModuleButton>Quiz 3</FinalModuleButton>
+            </Link>
            </div>
          </div>
   

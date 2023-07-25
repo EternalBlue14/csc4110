@@ -109,7 +109,7 @@ export default function Quiz() {
     return (
       <div>
         <div>
-          <h1 align="center">Quiz</h1>
+          <h1 align="center">Quiz 1</h1>
         </div>
         <div className='QuizContainer'>
           <QuizContainer questions={questionSet} />
