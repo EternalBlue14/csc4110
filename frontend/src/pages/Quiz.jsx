@@ -153,7 +153,7 @@ export default function Quiz() {
           <h1 align="center">Quiz 1</h1>
         </div>
         <div className='QuizContainer'>
-          <QuizContainer questions={questionSet} />
+          <QuizContainer questions={questionSet} topic='algebra' />
         </div>
       </div>
     )

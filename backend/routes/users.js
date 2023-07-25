@@ -50,7 +50,7 @@ router.get('/:id/quiz/:quizName', getQuiz)
 router.get('/:id/quiz', getQuizzes)
 
 // POST a new quiz
-router.post('/:id/quiz', createQuiz)
+router.post('/:userName/quiz', createQuiz)
 
 // DELETE a quiz
 router.delete('/:id/quiz/:quizName', deleteQuiz)

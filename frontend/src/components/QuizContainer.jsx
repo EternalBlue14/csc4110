@@ -1,9 +1,10 @@
 import './QuizContainer.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Navigate, useNavigate} from 'react-router-dom';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 
-function QuizContainer(props){
+function QuizContainer(props, topic){
 
 	const { questions } = props;
 
@@ -18,46 +19,6 @@ function QuizContainer(props){
 		setShowScore(false);
 		setScore(0);
 	  };
-
-	
-    // const questions = [
-	// 	{
-	// 		questionText: 'sin(0)',
-	// 		answerOptions: [
-	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
-	// 			{ answerText: '1/2', isCorrect: false },
-	// 			{ answerText: '0', isCorrect: true },
-	// 			{ answerText: 'pi', isCorrect: false },
-	// 		],
-	// 	},
-	// 	{
-	// 		questionText: 'sin(pi)',
-	// 		answerOptions: [
-	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
-	// 			{ answerText: '0', isCorrect: true },
-	// 			{ answerText: '1/2', isCorrect: false },
-	// 			{ answerText: '1', isCorrect: false },
-	// 		],
-	// 	},
-	// 	{
-	// 		questionText: 'sin(pi/2)',
-	// 		answerOptions: [
-	// 			{ answerText: '1', isCorrect: true },
-	// 			{ answerText: '0', isCorrect: false },
-	// 			{ answerText: '1/2', isCorrect: false },
-	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
-	// 		],
-	// 	},
-	// 	{
-	// 		questionText: 'sin((3pi/2))',
-	// 		answerOptions: [
-	// 			{ answerText: '1', isCorrect: true },
-	// 			{ answerText: 'sqrt(3)/2', isCorrect: false },
-	// 			{ answerText: '0', isCorrect: false },
-	// 			{ answerText: '1/2', isCorrect: false },
-	// 		],
-	// 	},
-	// ];
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
@@ -75,10 +36,38 @@ function QuizContainer(props){
 			setShowScore(true);
 		}
 	};
+	const login = useAuthContext();
 
 	if (!questions || questions.length === 0) {
+		
+  		const arr = [];
+  		for (const key in login) {
+    		const arrObj = login[key];
+    		arrObj['id'] = key;
+    		arr.push(arrObj)
+  		}
+  		//Extracts the userName key field from the array of objects into a regular array
+  		const userArr= arr.map((dataItem) => dataItem.userName);
+  		//Convert the array to just a standard variable with one value since the above array is saved as
+  		//[userName, undefined] and we need a single value variable to pass into the api call
+  		var userNamed;
+  		for (var i = 0; i <= userArr.length; i++)
+  		{
+  		  userNamed = userArr[0];
+  		}  
+  		console.log(userNamed); //Keeping track to ensure the above operation performs as intended
+		  const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ userNamed, score, topic })
+		};
+		fetch(`/api/users/${ userNamed }/quiz`, requestOptions)
+			.then(response => response.json())
+			.then(console.log(userNamed));
+		
 		return <div>Loading...</div>;
-	  }
+	}
+	  
 	return (
 		<div className='app'>
 			{showScore ? (
@@ -108,6 +97,6 @@ function QuizContainer(props){
 			)}
 		</div>
 	);
-}
+}								
 
 export default QuizContainer

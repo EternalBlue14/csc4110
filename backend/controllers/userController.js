@@ -171,21 +171,12 @@ const getQuizzes = async (req, res) => {
 
 // create a new quiz for user
 const createQuiz = async (req, res) => {
-    const {id} = req.params
+    const {userName} = req.params
     const {quizName, quizTopic, quizScore} = req.body
-
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: "No such user"})
-    }
 
     try {
         // retrieve user
-        const user = await User.findById(id)
-        const quiz = user.quizzes.filter((quiz) => {return quiz.quizName === quizName})[0]
-
-        if(quiz) {
-            return res.status(400).json({error: "Quiz already exists"})
-        }
+        const user = await User.findOne({userName: userName})
         
         // create quiz data within user
         user.quizzes.push({quizName, quizTopic, quizScore})

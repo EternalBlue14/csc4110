@@ -7,7 +7,7 @@ const Schema = mongoose.Schema
 const quizSchema = new Schema({
     quizName: {
         type: String,
-        required: true
+        required: false
     },
     quizTopic: {
         type: String,
