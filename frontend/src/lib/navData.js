@@ -14,17 +14,29 @@ export const navData = [
     {
         id: 1,
         icon: <CalculateIcon/>,
-        text: "Topic1",
-        link: "Topic1"
+        text: "Unit Conversions",
+        link: "UnitConversions"
     },
     {
         id: 2,
+        icon: <CalculateIcon/>,
+        text: "Algebra",
+        link: "Algebra"
+    },
+    {
+        id: 2,
+        icon: <CalculateIcon/>,
+        text: "Pre-Calculus",
+        link: "Topic1"
+    },
+    {
+        id: 3,
         icon: <InfoIcon/>,
         text: "About Us",
         link: "About"
     },
     {
-        id: 3,
+        id: 4,
         icon: <LogoutIcon/>,
         text: "Logout",
         link: "logout"

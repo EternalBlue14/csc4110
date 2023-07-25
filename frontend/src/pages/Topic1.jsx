@@ -21,7 +21,7 @@ export default function Topic1() {
 
       <>
          <div className='topicname'>
-           <h2>Topic1</h2>
+           <h2>Pre-Calculus</h2>
          </div>
   
          <div className='topic-container'>
@@ -42,7 +42,7 @@ export default function Topic1() {
   
            <div className='modulebutton3'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/Topic1/Quiz">
+             <Link to="/Topic1/Quiz2">
               <ModuleButton>Quiz 2</ModuleButton>
              </Link>
            </div>

@@ -18,6 +18,7 @@ import Quiz from "./pages/Quiz";
 import UnitConversions from "./pages/UnitConversions";
 import T1Lecture from "./pages/T1Lecture";
 import UCLecture from "./pages/UCLecture";
+import Quiz2 from "./pages/Quiz2";
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
           <Route path="/UnitConversions/Quiz" element={<Quiz />} />
           <Route path="/Topic1/T1Lecture" element={<T1Lecture />} />
           <Route path="/UnitConversions/UCLecture" element={<UCLecture />} />
+          <Route path="/Topic1/Quiz2" element={<Quiz2 />} />
+          <Route path="/UnitConversions/Quiz2" element={<Quiz2 />} />
         </Routes>
       </main>
     </div>

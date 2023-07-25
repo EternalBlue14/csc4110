@@ -26,8 +26,8 @@ export default function UnitConversions() {
          <div className='topic-container'>
            <div className='modulebutton1'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/UnitConversions/Quiz">
-              <ModuleButton />
+             <Link to="/UnitConversions/UCLecture">
+              <ModuleButton>Lecture</ModuleButton>
              </Link>
 
            </div>
@@ -35,19 +35,19 @@ export default function UnitConversions() {
            <div className='modulebutton2'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
              <Link to="/UnitConversions/Quiz">
-              <ModuleButton />
+              <ModuleButton>Quiz 1</ModuleButton>
              </Link>
            </div>
   
            <div className='modulebutton3'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/Topic1/Quiz">
-              <ModuleButton />
+             <Link to="/UnitConversions/Quiz2">
+              <ModuleButton>Quiz 2</ModuleButton>
              </Link>
            </div>
   
            <div className='finalmodulebutton'>
-             <FinalModuleButton />
+             <FinalModuleButton>Quiz 3</FinalModuleButton>
            </div>
          </div>
   
