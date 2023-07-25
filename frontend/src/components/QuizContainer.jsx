@@ -6,7 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 
 function QuizContainer( props ){
 
-	const { questions, topic } = props;
+	const questions = props;
 
 	const navigate = useNavigate()
 	
