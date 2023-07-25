@@ -87,39 +87,39 @@ export default function Quiz() {
 
 	const alQuestions1 = [
 		{
-			questionText: 'sin(0)',
+			questionText: '10x + 3 = 83',
 			answerOptions: [
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-				{ answerText: '1/2', isCorrect: false },
-				{ answerText: '0', isCorrect: true },
-				{ answerText: 'pi', isCorrect: false },
+				{ answerText: 'x=3', isCorrect: false },
+				{ answerText: 'x=8', isCorrect: true },
+				{ answerText: 'x=6.5', isCorrect: false },
+				{ answerText: 'x=13', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'sin(pi)',
+			questionText: '6x + 5 = 59',
 			answerOptions: [
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-				{ answerText: '0', isCorrect: true },
-				{ answerText: '1/2', isCorrect: false },
-				{ answerText: '1', isCorrect: false },
+				{ answerText: 'x=9', isCorrect: true },
+				{ answerText: 'x=8', isCorrect: false },
+				{ answerText: 'x=6', isCorrect: false },
+				{ answerText: 'x=10', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'sin(pi/2)',
+			questionText: '8x + 8 = 80',
 			answerOptions: [
-				{ answerText: '1', isCorrect: true },
-				{ answerText: '0', isCorrect: false },
-				{ answerText: '1/2', isCorrect: false },
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
+				{ answerText: 'x=10', isCorrect: false },
+				{ answerText: 'x=9', isCorrect: true },
+				{ answerText: 'x=11', isCorrect: false },
+				{ answerText: 'x=8.5', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'sin((3pi/2))',
+			questionText: '2x + 3 = 19',
 			answerOptions: [
-				{ answerText: '1', isCorrect: true },
-				{ answerText: 'sqrt(3)/2', isCorrect: false },
-				{ answerText: '0', isCorrect: false },
-				{ answerText: '1/2', isCorrect: false },
+				{ answerText: 'x=7', isCorrect: false },
+				{ answerText: 'x=6.5', isCorrect: false },
+				{ answerText: 'x=9', isCorrect: false },
+				{ answerText: 'x=8', isCorrect: true },
 			],
 		},
 	];
@@ -140,7 +140,9 @@ export default function Quiz() {
       setQuestionSet(pcQuestions1);
     } else if (location.pathname.includes('UnitConversions')) {
       setQuestionSet(ucQuestions1);
-    }
+    } else if (location.pathname.includes('Algebra')) {
+		setQuestionSet(alQuestions1);
+	}
   }, [location.pathname]);
 
   console.log(questionSet);

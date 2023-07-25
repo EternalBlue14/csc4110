@@ -22,6 +22,7 @@ import UCLecture from "./pages/UCLecture";
 import Quiz2 from "./pages/Quiz2";
 import Quiz3 from "./pages/Quiz3";
 import Algebra from "./pages/Algebra";
+import ALecture from "./pages/ALecture";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/Algebra/Quiz" element={<Quiz />} />
           <Route path="/Algebra/Quiz2" element={<Quiz2 />} />
           <Route path="/Algebra/Quiz3" element={<Quiz3 />} />
+          <Route path="/Algebra/ALecture" element={<ALecture />} />
           
         </Routes>
       </main>

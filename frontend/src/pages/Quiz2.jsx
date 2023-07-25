@@ -85,6 +85,46 @@ export default function Quiz2() {
 		},
 	];
 
+
+	const alQuestions2 = [
+		{
+			questionText: 'x^2 + 3x - 54',
+			answerOptions: [
+				{ answerText: 'x=3,6', isCorrect: false },
+				{ answerText: 'x=-3,6', isCorrect: false },
+				{ answerText: 'x=6,-9', isCorrect: true },
+				{ answerText: 'x=-6,9', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'x^2 - 8x + 12',
+			answerOptions: [
+				{ answerText: 'x=6,2', isCorrect: true },
+				{ answerText: 'x=-6,-2', isCorrect: false },
+				{ answerText: 'x=4,3', isCorrect: false },
+				{ answerText: 'x=-4,3', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'x^2 + 10x + 24',
+			answerOptions: [
+				{ answerText: 'x=4,6', isCorrect: false },
+				{ answerText: 'x=-4,-6', isCorrect: true },
+				{ answerText: 'x=-8,2', isCorrect: false },
+				{ answerText: 'x=8,3', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'x^2 + 11x + 28',
+			answerOptions: [
+				{ answerText: 'x=-7,-4', isCorrect: true },
+				{ answerText: 'x=-14.-2', isCorrect: false },
+				{ answerText: 'x=13,-3', isCorrect: false },
+				{ answerText: 'x=7,4', isCorrect: false },
+			],
+		},
+	];
+
     const location = useLocation();
 
     useEffect(() => {
@@ -92,6 +132,8 @@ export default function Quiz2() {
         setQuestionSet(pcQuestions2);
       } else if (location.pathname.includes('UnitConversions')) {
         setQuestionSet(ucQuestions2);
+      } else if (location.pathname.includes('Algebra')) {
+        setQuestionSet(alQuestions2);
       }
     }, [location.pathname]);
   
