@@ -11,6 +11,7 @@ function QuizContainer( props ){
 	const navigate = useNavigate()
 	
 	const handleGoBack = () => {
+		setShowScore(false);
 		navigate(-1);
 	}
 
