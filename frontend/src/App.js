@@ -31,7 +31,6 @@ function App() {
           <Route path="/Topic1" element={<Topic1 />} />
           <Route path="/UnitConversions" element={<UnitConversions />} />
           <Route path="/About" element={<About />}/>
-          <Route path="/Login" element={<Login />}/>
           <Route path="/Signup" element={<Signup />}/>
           <Route path="/Topic1/Quiz" element={<Quiz />} />
           <Route path="/UnitConversions/Quiz" element={<Quiz />} />
