@@ -27,7 +27,7 @@ export default function Topic1() {
          <div className='topic-container'>
            <div className='modulebutton1'>
              {/* <ModuleButton onClick={handleModuleClick} /> */}
-             <Link to="/Topic1/Quiz">
+             <Link to="/Topic1/T1Lecture">
               <ModuleButton>Lecture</ModuleButton>
              </Link> 
              
