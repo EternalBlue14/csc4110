@@ -39,6 +39,6 @@ export const navData = [
         id: 4,
         icon: <LogoutIcon/>,
         text: "Logout",
-        link: "logout"
+        link: "Logout"
     }
 ]
