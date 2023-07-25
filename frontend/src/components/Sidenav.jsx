@@ -4,15 +4,27 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import styles from './sidenav.module.css';
 import { NavLink } from "react-router-dom";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { useLocation } from 'react-router-dom';
+import Login from '../pages/login';
 
 
 
 export default function Sidenav() {
+
+  const withoutSideBarRoutes = ["/","/Signup"];
+
+  const {pathname} =useLocation();
+
   const [open, setOpen] = useState(true);
 
   const toggleOpen = () => {
     setOpen(!open);
   };
+
+  
+
+  // if (withoutSideBarRoutes.some((item) => pathname.matchAll(item))) return null;
+  if (withoutSideBarRoutes.includes(pathname)) return null;
 
   return (
     <div className={open?styles.sidenav:styles.sidenavClosed}>
