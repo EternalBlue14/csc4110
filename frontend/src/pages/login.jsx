@@ -18,7 +18,7 @@ export default function Login() {
   return (
 
     <div className="study-buddy-container">
-      <img src="Study Buddy Logo.png" alt="Study Buddy Logo" />
+      <img src="Study_Buddy_Logo.png" alt="Study Buddy Logo" />
 
       <form className="login" onSubmit={handleSubmit}>
         <div className="username-container">

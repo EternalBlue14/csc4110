@@ -71,7 +71,7 @@ export default function About() {
           <h3 style={{ textAlign: "center" }}>Join our Discord community for discussions and updates!</h3>
           <a href="https://discord.gg/YVur2PPSQQ">
             <img
-              src="/Discord Transparent.png"
+              src="/Discord_Transparent.png"
               alt="Discord Logo"
               style={{
                 maxWidth: "200px",

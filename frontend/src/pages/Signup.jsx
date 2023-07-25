@@ -20,7 +20,7 @@ export default function Signup() {
   return (
 
     <div className="study-buddy-container">
-      <img src="/csc4110/frontend/public/Study Buddy Logo.png" alt="Study Buddy Logo" />
+      <img src="/csc4110/frontend/public/Study_Buddy_Logo.png" alt="Study Buddy Logo" />
 
       <form className="signup" onSubmit={handleSubmit}>
         <div className="username-container">
