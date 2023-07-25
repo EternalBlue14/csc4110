@@ -67,7 +67,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="discord-box"> {/* New box */}
+        <div className="discord-box"> {}
           <h3 style={{ textAlign: "center" }}>Join our Discord community for discussions and updates!</h3>
           <a href="https://discord.gg/YVur2PPSQQ">
             <img
