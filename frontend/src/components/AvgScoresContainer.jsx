@@ -12,8 +12,9 @@ const AvgScoresContainer = ({userID}) => {
   
   //Quiz average score api call
   const fetchQuizAvg = async (id) => {
-    const response = await fetch(`/api/users/${id}}quizAvg`);
+    const response = await fetch(`/api/users/${id}/quizAvg`);
     const userData = await response.json();
+    console.log('userData avgScore value after api call:', userData);
     return userData;
   };
   
@@ -25,6 +26,7 @@ const AvgScoresContainer = ({userID}) => {
       .catch((error) => console.error('Error fetching user data:', error));
   }, [userID]);
 
+  console.log('quizAvg value before passing to chart:', quizAvg);
   /////Prepare data for the chart using the quizAvg variable we set above/////
   // BUG: For some reason two labels on x axis appears despite there being data for only one
   const chartData = {
@@ -40,11 +42,21 @@ const AvgScoresContainer = ({userID}) => {
     ],
   };
 
+  const chartOptions = {
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 1, // Specify the maximum number of ticks/labels on the X-axis
+        },
+      },
+    },
+  };
+
   //Return function that loads the chart with the data
   return(
     <div>
       <h1>Average Score</h1>
-        <Bar data={chartData} />
+        <Bar data={chartData} options={chartOptions} />
     </div>
   );
 }
@@ -96,13 +108,6 @@ function AvgScoresContainer(){
 
 //////////////////////////////////////////////////////////////////////
 //some additional old code
-
-    useEffect(() => {
-      fetch('/api/users') 
-        .then((response) => response.json())
-        .then((data) => setUser(data)) 
-        .catch((error) => console.error('Error fetching data:', error));
-    }, []);
 
     useEffect(() => {
       // Check if data has been fetched before creating the chart

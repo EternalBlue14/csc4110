@@ -16,7 +16,7 @@ const ProgressContainer = ({userID}) => {
       const response = await fetch(`/api/users/${id}/quiz`);
       const userData = await response.json();
       //Another check to ensure the above did import correctly
-      console.log('userData after fetch progress cont:', userData);
+      console.log('userData quiz values after api call:', userData);
       //Converting JSON results into array of object
       const arr = [];
       for (const key in userData) {
@@ -26,7 +26,6 @@ const ProgressContainer = ({userID}) => {
       }
       //More checks to ensure we do have an array of objects after the previous operation
       const quizArr = arr;
-      console.log(quizArr);
       if (Array.isArray(quizArr)){
         console.log('API resonse is an array');
       }
@@ -44,7 +43,7 @@ const ProgressContainer = ({userID}) => {
         .catch((error) => console.error('Error fetching user data:', error));
     }, [userID]);
   
-    
+    console.log('quizProg value before passing to chart:', quizProg);
     /////Prepare data for the chart using the quizProg variable we set above/////
     //The mapping is done during chart creation since here we extract the data needed
     const chartData = {
