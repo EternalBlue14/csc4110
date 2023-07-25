@@ -96,7 +96,7 @@ export default function About() {
         </div>
 
         <div className="tan-box">
-          <Link to="/Login">Go to Dashboard</Link>
+          <Link to="/Dashboard">Go to Dashboard</Link>
         </div>
       </body>
     </html>

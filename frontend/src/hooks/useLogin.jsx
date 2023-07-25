@@ -33,7 +33,7 @@ export const useLogin = () => {
       // update loading state
       setIsLoading(false)
 
-      navigate("/"); //Allows us to redirect the user after they login
+      navigate("/Dashboard"); //Allows us to redirect the user after they login
 
     }
   }

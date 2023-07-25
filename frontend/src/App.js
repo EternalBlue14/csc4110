@@ -26,7 +26,8 @@ function App() {
       <main>
         <Sidenav />
         <Routes>
-          <Route path="/" element={<Dashboard />}/>
+        <Route exact path="/" element={<Login />} />
+          <Route path="/Dashboard" element={<Dashboard />}/>
           <Route path="/Topic1" element={<Topic1 />} />
           <Route path="/UnitConversions" element={<UnitConversions />} />
           <Route path="/About" element={<About />}/>
