@@ -6,7 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 
 function QuizContainer( props ){
 
-	const questions = props;
+	const { questions } = props;
 
 	const navigate = useNavigate()
 	
@@ -77,7 +77,7 @@ function QuizContainer( props ){
 			.then(response => response.json())
 			.then(console.log(userNamed))
 			.then(console.log(score))
-			.then(console.log(topic));
+			.then(console.log(currTopic));
 		
 	}
 	if (!questions || questions.length === 0) {
