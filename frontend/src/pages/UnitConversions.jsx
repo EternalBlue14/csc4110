@@ -20,7 +20,7 @@ export default function UnitConversions() {
 
       <>
          <div className='topicname'>
-           <h2>UnitConversions</h2>
+           <h2>Unit Conversions</h2>
          </div>
   
          <div className='topic-container'>

@@ -85,6 +85,45 @@ export default function Quiz() {
 		},
 	];
 
+	const alQuestions1 = [
+		{
+			questionText: 'sin(0)',
+			answerOptions: [
+				{ answerText: 'sqrt(3)/2', isCorrect: false },
+				{ answerText: '1/2', isCorrect: false },
+				{ answerText: '0', isCorrect: true },
+				{ answerText: 'pi', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'sin(pi)',
+			answerOptions: [
+				{ answerText: 'sqrt(3)/2', isCorrect: false },
+				{ answerText: '0', isCorrect: true },
+				{ answerText: '1/2', isCorrect: false },
+				{ answerText: '1', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'sin(pi/2)',
+			answerOptions: [
+				{ answerText: '1', isCorrect: true },
+				{ answerText: '0', isCorrect: false },
+				{ answerText: '1/2', isCorrect: false },
+				{ answerText: 'sqrt(3)/2', isCorrect: false },
+			],
+		},
+		{
+			questionText: 'sin((3pi/2))',
+			answerOptions: [
+				{ answerText: '1', isCorrect: true },
+				{ answerText: 'sqrt(3)/2', isCorrect: false },
+				{ answerText: '0', isCorrect: false },
+				{ answerText: '1/2', isCorrect: false },
+			],
+		},
+	];
+
   // useEffect(() => {
   //   if (window.location.href.indexOf('Topic1') !== -1) {
   //     setQuestionSet(pcQuestions1);
