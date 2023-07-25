@@ -9,7 +9,7 @@ export default function About() {
         <title>About Us</title>
       </head>
       <body>
-        <div className="container">
+        <div className="containernew">
           <h3>About Study Buddy:</h3>
           <p>
             Our objective is to create a web application for students to learn math topics of their choosing. We provide interactive modules containing learning content and quizzes. The easy-to-use interface and website optimizations are what make our application marketable in today's competitive world.
