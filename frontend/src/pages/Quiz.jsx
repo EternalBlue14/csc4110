@@ -133,8 +133,8 @@ export default function Quiz() {
   
   // }, []);
 
-  const location = useLocation();
 
+  const location = useLocation();
   useEffect(() => {
     if (location.pathname.includes('Topic1')) {
       setQuestionSet(pcQuestions1);

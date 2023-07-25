@@ -143,7 +143,7 @@ export default function Quiz3() {
             <h1 align="center">Quiz 3</h1>
           </div>
           <div className='QuizContainer'>
-            <QuizContainer questions={questionSet} />
+            <QuizContainer questions={questionSet} topic={"precalc"}/>
           </div>
         </div>
       )
