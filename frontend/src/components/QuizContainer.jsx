@@ -36,6 +36,16 @@ function QuizContainer( props ){
 			setShowScore(true);
 		}
 	};
+	/*
+	var currTopic;
+	if (questions[0].questionText == '1 meter is equal to how many centimeters?') {
+		currTopic = 'science';
+	} else if (questions[0].questionText == 'sin(0)') {
+		currTopic = 'precalc';
+	} else if (questions[0].questionText == '10x + 3 = 83') {
+		currTopic = 'algebra';
+	}
+	*/
 	const login = useAuthContext();
 	if (showScore == true) {
 		const arr = [];
@@ -50,11 +60,18 @@ function QuizContainer( props ){
   		//[userName, undefined] and we need a single value variable to pass into the api call
   		var userNamed;
   		userNamed = userArr[0];
-
+		  var currTopic;
+		  if (questions[0].questionText == '1 meter is equal to how many centimeters?') {
+			  currTopic = 'science';
+		  } else if (questions[0].questionText == 'sin(0)') {
+			  currTopic = 'precalc';
+		  } else if (questions[0].questionText == '10x + 3 = 83') {
+			  currTopic = 'algebra';
+		  }
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ quizName: userNamed, quizScore: score, quizTopic: topic })
+			body: JSON.stringify({ quizName: userNamed, quizScore: score, quizTopic: currTopic })
 		};
 		fetch(`/api/users/${ userNamed }/quiz`, requestOptions)
 			.then(response => response.json())
