@@ -11,11 +11,13 @@ export default function ALecture() {
 	}
 
     return <div>
-        <Container>
+        <Container className="videocontainer">
             <h1>Algebra Lecture Video</h1>
             <div className="videoWrapper" align="center">
                 <iframe width="840" height="472" src="https://www.youtube.com/embed/FoTD41xzF5Q" title="Youtube Video" allowFullScreen></iframe>
-                <button className='round-button' onClick={handleGoBack}>Go Back</button>
+                <div className="buttonWrapper">
+                    <button className='round-button' onClick={handleGoBack}>Go Back</button>
+                </div>
            
             </div>
         </Container>

@@ -11,11 +11,13 @@ export default function UCLecture() {
 	}
 
     return <div>
-        <Container>
+        <Container className="videocontainer">
             <h1>Unit Conversions Lecture Video</h1>
             <div className="videoWrapper" align="center">
                 <iframe width="840" height="472" src="https://www.youtube.com/embed/jFSenp9ueaI" title="Youtube Video" allowFullScreen></iframe>
-                <button className='round-button' onClick={handleGoBack}>Go Back</button>
+                <div className="buttonWrapper">
+                    <button className='round-button' onClick={handleGoBack}>Go Back</button>
+                </div>
            
             </div>
         </Container>

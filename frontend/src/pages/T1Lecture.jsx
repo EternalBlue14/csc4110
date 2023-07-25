@@ -10,11 +10,13 @@ export default function T1Lecture() {
 	}
 
     return <div>
-        <Container>
+        <Container className="videocontainer">
             <h1>Pre-Calculus Lecture Video</h1>
             <div className="videoWrapper" align="center">
                 <iframe width="840" height="472" src="https://www.youtube.com/embed/1m9p9iubMLU" title="Youtube Video" allowFullScreen></iframe>
-                <button className='round-button' onClick={handleGoBack}>Go Back</button>
+                <div className="buttonWrapper">
+                    <button className='round-button' onClick={handleGoBack}>Go Back</button>
+                </div>
             </div>
         </Container>
     </div>

@@ -1,0 +1,39 @@
+/* .videocontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    margin-left: 300px;    
+  } */
+
+  .videocontainer {
+    height: 100%;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    
+  }
+  
+  h1 {
+    margin-bottom: 20px; 
+  }
+  
+  .videoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+    justify-content: center;
+  }
+  
+  
+  .buttonWrapper {
+    margin-top: 20px; 
+    align-items: center;
+  }
+
+  
