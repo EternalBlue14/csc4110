@@ -45,21 +45,31 @@ const ProgressContainer = ({userID}) => {
   
     console.log('quizProg value before passing to chart:', quizProg);
     /////Prepare data for the chart using the quizProg variable we set above/////
-    //The mapping is done during chart creation since here we extract the data needed
+    //The variables that go into the chart to feed it with data are mapped and filtered
+    //we filter out the undefined values so they do not appear in the chart
+    const labels = quizProg
+    .map((dataItem) => dataItem.quizTopic)
+    .filter((label) => label !== undefined);
+    const values = quizProg
+    .map((dataItem) => dataItem.quizScore)
+    .filter((value) => value !== undefined);
+    
+    //console.log('const labels value after filtering:', labels);
+    //console.log('const values value after filtering:', values);
     const chartData = {
-      labels: quizProg.map((dataItem) => dataItem.quizName),
+      labels: labels,
       datasets: [
         {
           label: 'Quiz Score',
-          data: quizProg.map((dataItem) => dataItem.quizScore),
-          backgroundColor: '#fff04d',
+          data: values,
+          backgroundColor: ['#fff04d', '#ffd500'],
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1,
         },
       ],
     }
-    //Pie chart that does similar things as above but in pie form with different data
-    //BUG: Chart does not display, need to format container or change chart type
+    /*
+    //Unused chart, not sure what data to display
     const pieChart = {
       labels: quizProg.map((dataItem) => dataItem.quizTopic),
       datasets: [
@@ -72,13 +82,12 @@ const ProgressContainer = ({userID}) => {
         },
       ],
     };
-    
+    */
     //Return function that loads the charts with the data
     return(
       <div>
         <h1>Your Progress</h1>
-        <Bar data={chartData} />
-        <Bar data={pieChart} />
+        <Pie data={chartData} />
       </div>
     );
   }
